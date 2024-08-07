@@ -55,7 +55,6 @@
 
 	async function handleSubmit(event: Event) {
 		event.preventDefault();
-		console.log(currentUserId);
 		const { first_name, last_name, email, avatar } = userForm;
 		let response = null;
 
@@ -97,7 +96,6 @@
 		const result = await response.json();
 
 		if (response.ok) {
-			console.log('Submit action:', result);
 			updateUsers(result.data);
 			showModal = false;
 			showToast = true;
@@ -130,7 +128,6 @@
 		const result = await response.json();
 
 		if (response.ok) {
-			console.log('Delete action:', await result);
 			toastMessage = 'User deleted successfully!';
 			toastType = 'delete';
 			showToast = true;
@@ -145,7 +142,6 @@
 
 	function handleCancel() {
 		showModal = false;
-		console.log('Edit cancelled');
 	}
 </script>
 
@@ -190,7 +186,7 @@
 </div>
 <Toasts {showToast} {toastType}>{toastMessage}</Toasts>
 
-<Modal bind:showModal onSubmit={handleSubmit} onCancel={handleCancel}>
+<Modal bind:showModal>
 	<span slot="header">{modalHeader}</span>
 	<form>
 		<div class="form-group">
@@ -216,7 +212,7 @@
 			<input bind:value={userForm.avatar} type="text" id="avatar" name="avatar" required />
 		</div>
 	</form>
-	<div slot="footer">
+	<div class="form-buttons" slot="footer">
 		<Button size="outline" on:click={handleCancel}>Cancel</Button>
 		<Button size="small" on:click={handleSubmit}>Save</Button>
 	</div>
@@ -309,5 +305,10 @@
 				font-family: var(--font-body);
 			}
 		}
+	}
+	.form-buttons {
+		display: flex;
+		justify-content: flex-end;
+		gap: 24px;
 	}
 </style>

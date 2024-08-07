@@ -3,7 +3,6 @@ import type { PageServerLoad } from './$types';
 async function fetchUsers() {
   const response = await fetch('https://user-list-backend.netlify.app/api/users');
   const data = await response.json();
-  console.log(data);
   return data;
 
 }

@@ -1,7 +1,5 @@
 <script lang="ts">
 	export let showModal: boolean; // boolean
-	export let onSubmit: (event: Event) => void;
-	export let onCancel: () => void;
 
 	let dialog: HTMLDialogElement;
 
@@ -56,13 +54,6 @@
 			gap: 24px;
 			display: flex;
 			justify-content: flex-end;
-			.outline {
-				margin-right: 20px;
-			}
-		}
-
-		h3 {
-			margin: 0;
 		}
 	}
 	dialog::backdrop {
