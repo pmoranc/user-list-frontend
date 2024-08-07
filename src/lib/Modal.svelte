@@ -56,6 +56,9 @@
 			gap: 24px;
 			display: flex;
 			justify-content: flex-end;
+			.outline {
+				margin-right: 20px;
+			}
 		}
 
 		h3 {
