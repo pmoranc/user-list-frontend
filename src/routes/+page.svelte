@@ -171,7 +171,10 @@
 			{#each data.users as user}
 				<tr>
 					<td class="avatar"
-						><img src={user.avatar} alt={user.first_name + ' ' + user.last_name} /></td
+						><img
+							src={user.avatar ? user.avatar : 'https://placehold.co/40x40'}
+							alt={user.first_name + ' ' + user.last_name}
+						/></td
 					>
 					<td>{user.first_name}</td>
 					<td>{user.last_name}</td>
@@ -251,9 +254,6 @@
 					border-bottom: 1px solid var(--color-gray);
 
 					th {
-						// &:first-child {
-						// padding-left: 16px;
-						// }
 						padding-left: 16px;
 						padding-right: 16px;
 						padding-top: 19px;
